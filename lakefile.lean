@@ -232,6 +232,7 @@ library_facet docs (lib) : FilePath := do
       moduleJobs.mapM fun _ => do
         buildFileUnlessUpToDate' dataFile do
           logInfo "Documentation indexing"
+          logInfo "hacked!!!!"
           proc {
             cmd := exeFile.toString
             args := #["index", "--build", buildDir.toString]
