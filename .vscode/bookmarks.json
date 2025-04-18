@@ -24,6 +24,16 @@
 					"label": "Docs for module"
 				}
 			]
+		},
+		{
+			"path": "DocGen4/Output/DocString.lean",
+			"bookmarks": [
+				{
+					"line": 272,
+					"column": 4,
+					"label": "docStringToHtml"
+				}
+			]
 		}
 	]
 }
