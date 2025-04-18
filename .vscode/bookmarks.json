@@ -1,0 +1,29 @@
+{
+	"files": [
+		{
+			"path": "DocGen4/Process/Analyze.lean",
+			"bookmarks": [
+				{
+					"line": 109,
+					"column": 4,
+					"label": "process modules"
+				}
+			]
+		},
+		{
+			"path": "DocGen4/Output/Module.lean",
+			"bookmarks": [
+				{
+					"line": 64,
+					"column": 10,
+					"label": "Docs for a declaration"
+				},
+				{
+					"line": 110,
+					"column": 8,
+					"label": "Docs for module"
+				}
+			]
+		}
+	]
+}

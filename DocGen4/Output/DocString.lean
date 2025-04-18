@@ -266,6 +266,7 @@ partial def findAllReferences (refsMap : Std.HashMap String BibItem) (s : String
 
 /-- Convert docstring to Html. -/
 def docStringToHtml (docString : String) (funName : String) : HtmlM (Array Html) := do
+  -- find ^OEIS: num in `docString`, and render as a link.
   let refsMarkdown := "\n\n" ++ (String.join <|
     (findAllReferences (← read).refsMap docString).toList.map fun s =>
       s!"[{s}]: references.html#ref_{s}\n")

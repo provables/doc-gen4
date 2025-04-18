@@ -233,6 +233,7 @@ library_facet docs (lib) : FilePath := do
         buildFileUnlessUpToDate' dataFile do
           logInfo "Documentation indexing"
           logInfo "hacked!!!!"
+          logInfo "hacked again with no commit"
           proc {
             cmd := exeFile.toString
             args := #["index", "--build", buildDir.toString]
