@@ -29,7 +29,7 @@
 			"path": "DocGen4/Output/DocString.lean",
 			"bookmarks": [
 				{
-					"line": 272,
+					"line": 284,
 					"column": 4,
 					"label": "docStringToHtml"
 				}

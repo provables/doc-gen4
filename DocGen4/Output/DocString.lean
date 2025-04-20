@@ -265,14 +265,26 @@ partial def findAllReferences (refsMap : Std.HashMap String BibItem) (s : String
     ret
 
 /-- Run a pre-processing pass on Markdown for expanding special declarations. -/
-def preProcessMd (docString: String) : String :=
- 
+def preProcessMd (docString: String) : HtmlM String :=
+  let l := docString.splitOn "\n" |>.map (fun line =>
+    if line.startsWith "OEIS: " then
+      let num := line.splitOn " " |>.getD 1 "0" |>.toNat? |>.getD 0
+      ""
+    else
+      default
+  )
   default
+
+#eval "\n".intercalate <| "foo\nbar\nbaz".splitOn "\n"
+
+#check StateT.run_set do
+  let x <- preProcessMd ""
+ 
 
 /-- Convert docstring to Html. -/
 def docStringToHtml (docString : String) (funName : String) : HtmlM (Array Html) := do
   -- find ^OEIS: num in `docString`, and render as a link.
-  let docString := preProcessMd docString
+  let docString ← preProcessMd docString
   let refsMarkdown := "\n\n" ++ (String.join <|
     (findAllReferences (← read).refsMap docString).toList.map fun s =>
       s!"[{s}]: references.html#ref_{s}\n")
